@@ -1,0 +1,27 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 40px;  
+    background-color: #003366;
+}
+.containerP {
+    display: flex;
+    justify-content: center;
+    background-color: #FFFFFF;
+    padding-top: 20px;
+    width: 900px;
+    height: 700px;
+    border-radius: 20px;
+    border-style:groove;
+}
+
+.containerP h1 {
+    color: #003366;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
