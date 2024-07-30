@@ -58,5 +58,32 @@ function flipCard() {
     checkForMatch(); // chama a função p ver se as cartas é um par
 }
 
+function checkForMatch() {
+    let isMatch = firstCard.dataset.name === secondCard.dataset.name; // verifica se é um par e guarda
+    // operador ternário (3 operadores)
+    isMatch ? disableCards() : unflipCards(); // Chama isableCards se for um par e unflipCards se não
+}
+
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard); // tira o evento de click da primeira carta clicada
+    secondCard.removeEventListener('click', flipCard); // faz o mesmo c a segunda
+    resetCards(); // chama função p reiniciar o tabuleiro
+}
+
+function unflipCards() {
+    lockBoard = true; // bloqueia o tabueliro enquanto cartas estão sendo desviradas
+    setTimeout(() => { // atraso de 1s
+        firstCard.classList.remove('flipped'); // remove a classe q faz virar p ela desvirar
+        secondCard.classList.remove('flipped'); // remove a classe q faz virar p ela desvirar
+        firstCard.textContent = ''; // esconde o nome da fruta
+        secondCard.textContent = ''; // esconde o nome da fruta
+        resetCards(); 
+    }, 1000);
+}
+
+function resetCards() {
+    [hasFlippedCard, lockBoard] = [false, false]; // redefine as variaveis p poder virar mais cartas
+    [firstCard, secondCard] = [null, null]; // redefine as referencias 
+}
 
 document.addEventListener('DOMContentLoaded', createBoard); // cria o tabueleiro quando a pag é carregada
